@@ -10,7 +10,7 @@ PORTUGUESE_PROMPT_CONTENT = "Give me a random word in portuguese for a game of h
 prompt = []
 
 def generate_word(language_setting, max_reponse_tokens=50, model="gpt-3.5-turbo-0125"):
-    if language_setting.equals("ENG"):
+    if language_setting == "ENG":
         user_query = ENGLISH_PROMPT_CONTENT
     else:
         user_query = PORTUGUESE_PROMPT_CONTENT
