@@ -47,4 +47,3 @@ def show_game_state(lives,random_word,guessed_letters):
     print(HANGMAN_ASCII[6-lives]+"\n")
     show_guess(random_word, guessed_letters)
     print(f"You have {lives} lives left!!!")
-show_game_state(3,"apple",['p','l','g','b'])
