@@ -7,17 +7,17 @@ client = OpenAI(api_key=OPEN_AI_KEY)
 
 prompt = []
 def define_prompt_content():
-    # Begin by allowing user to select language and handling errors
+    # Begin by allowing user to select language and difficulty while handling errors
     while True:
         valid_language_settings = ["ENGLISH","PORTUGUESE"]
-        language_setting = input("Select language setting (ENGLISH or PORTUGUESE) ").upper()
+        language_setting = input("Select language setting (ENGLISH or PORTUGUESE): ").upper()
         if not(language_setting in valid_language_settings):
             print(f"{language_setting} is an invalid setting!!\n")
         else:
             break  
     while True:
         valid_difficulties = ["EASY","NORMAL","HARD","VERY HARD"]
-        difficulty = input("Select a difficulty\nEASY, NORMAL, HARD, VERY HARD").upper()
+        difficulty = input("Select a difficulty\nEASY, NORMAL, HARD, VERY HARD: ").upper()
         if not(difficulty in valid_difficulties):
             print(f"{difficulty} is not a valid setting!!\n")
         else:
