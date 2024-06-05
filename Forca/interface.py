@@ -1,4 +1,5 @@
 """Interface e Progresso do Jogo"""
+
 def show_guess(random_word, guessed_letters):
     progress = "_"*len(random_word)
     for index,each_letter in enumerate(random_word):
@@ -47,4 +48,3 @@ def show_game_state(lives,random_word,guessed_letters):
     print(HANGMAN_ASCII[6-lives]+"\n")
     show_guess(random_word, guessed_letters)
     print(f"You have {lives} lives left!!!")
-show_game_state(3,"apple",['p','l','g','b'])
