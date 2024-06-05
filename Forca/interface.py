@@ -7,3 +7,42 @@ def show_progress(random_word, guessed_letters):
             temp_progress[index]=each_letter
             progress = "".join(temp_progress)
     print(progress)
+def show_lives(lives):
+    HANGMAN_ASCII = ['''
+      +---+
+          |
+          |
+          |
+         ===''', '''
+      +---+
+      O   |
+          |
+          |
+         ===''', '''
+      +---+
+      O   |
+      |   |
+          |
+         ===''', '''
+      +---+
+      O   |
+     /|   |
+          |
+         ===''', '''
+      +---+
+      O   |
+     /|\  |
+          |
+         ===''', '''
+      +---+
+      O   |
+     /|\  |
+     /    |
+         ===''', '''
+      +---+
+      O   |
+     /|\  |
+     / \  |
+         ===''']
+    print(HANGMAN_ASCII[6-lives]+"\n")
+    print(f"You have {lives} lives left")
