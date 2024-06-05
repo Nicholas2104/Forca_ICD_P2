@@ -21,10 +21,10 @@ def define_prompt_content():
             print(f"{difficulty} is not a valid setting!!\n")
         else:
             break
-    prompt_content = f"Give me a {difficulty} word for a hangman game in {language_setting}"
+    prompt_content = f"Give me a {difficulty} word for a hangman game in {language_setting} - IT MUST BE ONLY ONE WORD NO SPACES- output only this word"
     return prompt_content
  
-def generate_word(max_reponse_tokens=50, model="gpt-3.5-turbo-0125"):
+def generate_word(max_reponse_tokens=150, model="gpt-3.5-turbo-0125"):
     user_query = define_prompt_content()
     # save user prompts so model remembers out ocnversation while session is running (*)
     prompt.append({"role":"user","content":user_query})
