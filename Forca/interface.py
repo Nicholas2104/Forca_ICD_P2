@@ -1,4 +1,5 @@
 """Interface e Progresso do Jogo"""
+
 def show_guess(random_word, guessed_letters):
     progress = "_"*len(random_word)
     for index,each_letter in enumerate(random_word):
