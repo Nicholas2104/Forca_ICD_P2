@@ -5,24 +5,28 @@ from openai import OpenAI
 OPEN_AI_KEY = "sk-proj-zCGeJqs2orLARuQI1Nx7T3BlbkFJ3rKkS13CInFrtaXdvUxk"
 client = OpenAI(api_key=OPEN_AI_KEY)
 
-ENGLISH_PROMPT_CONTENT = "Give me a random word for a game of hangman - output only that word"
-PORTUGUESE_PROMPT_CONTENT = "Give me a random word in portuguese for a game of hangman - output only that word"
 prompt = []
-
-def generate_word(language_setting, max_reponse_tokens=50, model="gpt-3.5-turbo-0125"):
+def define_prompt_content():
     # Begin by allowing user to select language and handling errors
     while True:
-        valid_language_settings = ["ENG","PORT"]
-        language_setting = input("Select language setting (ENG or PORT) ").upper()
-        
+        valid_language_settings = ["ENGLISH","PORTUGUESE"]
+        language_setting = input("Select language setting (ENGLISH or PORTUGUESE) ").upper()
         if not(language_setting in valid_language_settings):
-            print(f"{language_setting} is and Invalid setting!!\n")
+            print(f"{language_setting} is an invalid setting!!\n")
         else:
-            if language_setting == "ENG":
-                user_query = ENGLISH_PROMPT_CONTENT
-            else:
-                user_query = PORTUGUESE_PROMPT_CONTENT
+            break  
+    while True:
+        valid_difficulties = ["EASY","NORMAL","HARD","VERY HARD"]
+        difficulty = input("Select a difficulty\nEASY, NORMAL, HARD, VERY HARD").upper()
+        if not(difficulty in valid_difficulties):
+            print(f"{difficulty} is not a valid setting!!\n")
+        else:
             break
+    prompt_content = f"Give me a {difficulty} word for a hangman game in {language_setting}"
+    return prompt_content
+ 
+def generate_word(max_reponse_tokens=50, model="gpt-3.5-turbo-0125"):
+    user_query = define_prompt_content()
     # save user prompts so model remembers out ocnversation while session is running (*)
     prompt.append({"role":"user","content":user_query})
     # query the model by creating assistant reponse
