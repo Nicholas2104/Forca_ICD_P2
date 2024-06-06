@@ -2,7 +2,8 @@
 from openai import OpenAI
 
 # constructing client object
-OPEN_AI_KEY = "sk-proj-zCGeJqs2orLARuQI1Nx7T3BlbkFJ3rKkS13CInFrtaXdvUxk"
+#BUENO, insira a chave aqui em baixo
+OPEN_AI_KEY = ""
 client = OpenAI(api_key=OPEN_AI_KEY)
 
 prompt = []
@@ -21,7 +22,7 @@ def define_prompt_content():
             print(f"{difficulty} is not a valid setting!!\n")
         else:
             break
-    prompt_content = f"Give me a {difficulty} word for a hangman game in {language_setting} - IT MUST BE ONLY ONE WORD NO SPACES- output only this word"
+    prompt_content = f"Give me a {difficulty} word for a hangman game in {language_setting} - IT MUST BE ONLY ONE WORD NO SPACES AND WITH NO ACCENTS- output only this word"
     return prompt_content
  
 def generate_word(max_reponse_tokens=150, model="gpt-3.5-turbo-0125"):

@@ -11,8 +11,6 @@ while continue_play:
     guessed_letters = []
     lives = 6 
     win_condition = False 
-
-    print(random_word)
     while lives > 0 and win_condition == False:
         #take_input must verify if guess is not duplicated and is in alphabet - returns character
         guessed_char = word_processing.take_input(guessed_letters).lower()
